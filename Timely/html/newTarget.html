@@ -8,16 +8,18 @@
 </head>
 <body>
     <div class="box">
-        <input type="text" placeholder="Target Activity Name" class="tName">
+        <input type="text" placeholder="Target Activity Name" id="activityName">
         <div class="bTime">
-            <label for="tTime">Set Goal Time:</label>
-            <input type="time" class="tTime" name="tTime">
+            <label for="goalTime">Set Goal Time:</label>
+            <input type="time" id="goalTime" name="tTime">
         </div>
         <div class="bDate">
+            <label for="startDate">Start Date:</label>
+            <input type="date" id="startDate" name="startDate">
             <label for="dueDate">Due Date:</label>
-            <input type="date" class="dueDate" name="dueDate">
+            <input type="date" id="dueDate" name="dueDate">
         </div>
-        <button type="submit" class="submitButton" onclick="addNewTarget()">Add New Target</button>
+        <button type="button" class="submitButton" onclick="addNewTarget()">Add New Target</button>
     </div>
     <script src="/Timely/js/newTarget.js"></script>
 </body>
