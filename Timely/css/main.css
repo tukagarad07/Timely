@@ -1,3 +1,5 @@
+
+
 .tableElement {
     height: 50px;
     width: 350px;
@@ -55,4 +57,13 @@ button {
 
 .dropdown-option:last-child {
     border-bottom: none;
+}
+
+.left {
+    flex: 1;
+}
+
+.right {
+    flex: 1;
+    text-align: right;
 }

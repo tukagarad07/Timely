@@ -1,3 +1,64 @@
+// Assuming count is a local variable indicating the number of objects
+var count = parseInt(localStorage.getItem('localCount'))|0; // Replace with your actual count
+var objects = [];
+
+// Load objects from local storage
+for (var i = 0; i < count; i++) {
+    var objectName = "object" + i;
+    var storedObject = JSON.parse(localStorage.getItem(objectName));
+    if (storedObject) {
+        objects.push(storedObject);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    displayObjectsInTable(objects);
+    var scheduleElement = document.querySelector('.schedule');
+    var goalElement = document.querySelector('.goal');
+
+//new
+    var objectElements = document.querySelectorAll('.object');
+    objectElements.forEach(function (objectElement, index) {
+        objectElement.addEventListener('click', function() {
+            redirectToIndex(objects[index]);
+        });
+    });
+
+
+    // Add click event listener to "schedule"
+    scheduleElement.addEventListener('click', function() {
+        redirectToIndex();
+    });
+
+    // Add click event listener to "goal"
+    goalElement.addEventListener('click', function() {
+        redirectToIndex();
+    });
+});
+
+function displayObjectsInTable(objectList) {
+    // Get the "table" element
+    var table = document.querySelector('.schedule');
+
+    // Iterate through the list of objects and create a div for each
+    objectList.forEach(function(object, index) {
+        // Create a new div element for each object
+        var objectDiv = document.createElement('div');
+        objectDiv.className = 'object tableElement';
+
+        // Create and append HTML content based on object properties
+        objectDiv.innerHTML = `
+            <div class="left">${object.activityName}</div>
+            <div class="right">${object.completedPercentage}%</div>
+            <!-- Add other properties as needed -->
+        `;
+
+        // Append the objectDiv to the "table" element
+        table.appendChild(objectDiv);
+    });
+}
+
+
 var dropdownContent;
 
 function showOptions() {
@@ -9,8 +70,8 @@ function showOptions() {
     dropdownContent.id = "dropdown-content";
     dropdownContent.className = "dropdown-content";
 
-    addOption(dropdownContent, "Add new Schedule", "addschedule.html");
-    addOption(dropdownContent, "Add new Target", "addtarget.html");
+    addOption(dropdownContent, "Add new Schedule", "/Timely/html/newSchedule.html");
+    addOption(dropdownContent, "Add new Target", "/Timely/html/newTarget.html");
 
 
     document.body.appendChild(dropdownContent);
@@ -42,4 +103,14 @@ function addOption(container, text, destination) {
     });
 
     container.appendChild(option);
+}
+
+// function redirectToIndex() {
+//     window.location.href = '/Timely/index.html'; // Adjust the path accordingly
+// }
+
+function redirectToIndex(selectedObject) {
+    const queryString = new URLSearchParams({ selectedObject: JSON.stringify(selectedObject) }).toString();
+    const url = `/Timely/index.html?${queryString}`;
+    window.location.href = url;
 }
