@@ -31,16 +31,40 @@ function startStopwatch() {
 }
 
 function saveTimeToLocalStorage() {
-  localStorage.setItem('stopwatchHours', hours);
-  localStorage.setItem('stopwatchMinutes', minutes);
-  localStorage.setItem('stopwatchSeconds', seconds);
+  saveTime();
+  // localStorage.setItem('stopwatchHours', hours);
+  // localStorage.setItem('stopwatchMinutes', minutes);
+  // localStorage.setItem('stopwatchSeconds', seconds);
 }
 
 function loadTimeFromLocalStorage() {
-  username = localStorage.getItem('stopwatchHours');
-  hours = parseInt(localStorage.getItem('stopwatchHours')) || 0;
-  minutes = parseInt(localStorage.getItem('stopwatchMinutes')) || 0;
-  seconds = parseInt(localStorage.getItem('stopwatchSeconds')) || 0;
+  loadTime();
+  // username = localStorage.getItem('stopwatchHours');
+  // hours = parseInt(localStorage.getItem('stopwatchHours')) || 0;
+  // minutes = parseInt(localStorage.getItem('stopwatchMinutes')) || 0;
+  // seconds = parseInt(localStorage.getItem('stopwatchSeconds')) || 0;
+}
+
+function saveTime() {
+  objNumber = parseInt(localStorage.getItem('objCount'));
+  const object = JSON.parse(localStorage.getItem('object'+objNumber));
+  if(object) {
+    object.completedHours = (hours * 3600) + (minutes * 60) + seconds;
+    object.completedPercentage = ((parseInt(object.completedHours)/parseInt(object.totleHours))*100).toFixed(2);
+    localStorage.setItem('object' + objNumber, JSON.stringify(object));
+
+  }
+}
+function loadTime() {
+  objNumber = parseInt(localStorage.getItem('objCount'));
+  const object = JSON.parse(localStorage.getItem('object'+objNumber));
+  if(object) {
+    totalSeconds = parseInt(object.completedHours);
+    hours = Math.floor(totalSeconds / 3600);
+    totalSeconds = totalSeconds % 3600;
+    minutes = Math.floor(totalSeconds / 60);
+    seconds = totalSeconds % 60;
+  }
 }
 
 function clearTimeFromLocalStorage() {

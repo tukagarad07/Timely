@@ -20,14 +20,8 @@ document.addEventListener('DOMContentLoaded', function() {
     var objectElements = document.querySelectorAll('.object');
     objectElements.forEach(function (objectElement, index) {
         objectElement.addEventListener('click', function() {
-            redirectToIndex(objects[index]);
+            redirectToIndex(index);
         });
-    });
-
-
-    // Add click event listener to "schedule"
-    scheduleElement.addEventListener('click', function() {
-        redirectToIndex();
     });
 
     // Add click event listener to "goal"
@@ -109,8 +103,7 @@ function addOption(container, text, destination) {
 //     window.location.href = '/Timely/index.html'; // Adjust the path accordingly
 // }
 
-function redirectToIndex(selectedObject) {
-    const queryString = new URLSearchParams({ selectedObject: JSON.stringify(selectedObject) }).toString();
-    const url = `/Timely/index.html?${queryString}`;
-    window.location.href = url;
+function redirectToIndex(objCount) {
+    localStorage.setItem('objCount',objCount)
+    window.location.href = '/Timely/index.html';
 }
