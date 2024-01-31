@@ -105,5 +105,5 @@ function addOption(container, text, destination) {
 
 function redirectToIndex(objCount) {
     localStorage.setItem('objCount',objCount)
-    window.location.href = '/Timely/index.html';
+    window.location.href = '/Timely/home.html';
 }
