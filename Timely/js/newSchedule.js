@@ -5,5 +5,5 @@ function addNewTarget() {
     alert("Schedule is Updated");
 
     // Redirect to index.html
-    window.location.href = "/Timely/home.html";
+    window.location.href = "/Timely/html/home.html";
 }

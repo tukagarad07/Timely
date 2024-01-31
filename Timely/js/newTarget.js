@@ -39,7 +39,7 @@ function addNewTarget() {
     alert("Activity is generated");
 
     // Redirect to the index.html page
-    window.location.href = "/Timely/home.html";
+    window.location.href = "/Timely/html/home.html";
 }
 
 
