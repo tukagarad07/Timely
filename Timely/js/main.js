@@ -40,6 +40,26 @@ function displayObjectsInTable(objectList) {
         // Create a new div element for each object
         var objectDiv = document.createElement('div');
         objectDiv.className = 'object tableElement';
+        var backgroundColor = '#006400'; // Default color for completed objects
+
+        if (object.completedPercentage < 1) {
+            backgroundColor = '#FFFFFF';
+        }else if (object.completedPercentage < 20) {
+            backgroundColor = '#CCFF33';
+        } else if (object.completedPercentage < 35) {
+            backgroundColor = '#9EF01A';
+        } else if (object.completedPercentage < 45) {
+            backgroundColor = '#70E000';
+        } else if (object.completedPercentage < 65) {
+            backgroundColor = '#38B000';
+        } else if (object.completedPercentage < 75) {
+            backgroundColor = '#008000';
+        } else if (object.completedPercentage < 90) {
+            backgroundColor = '#007200';
+        }
+
+        // Apply background color to the object
+        objectDiv.style.backgroundColor = backgroundColor;
 
         // Create and append HTML content based on object properties
         var htmlContent = `
