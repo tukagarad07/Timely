@@ -1,8 +1,6 @@
-// Assuming count is a local variable indicating the number of objects
 var count = parseInt(localStorage.getItem('localCount'))|0; // Replace with your actual count
 var objects = [];
 
-// Load objects from local storage
 for (var i = 0; i < count; i++) {
     var objectName = "object" + i;
     var storedObject = JSON.parse(localStorage.getItem(objectName));
@@ -13,34 +11,23 @@ for (var i = 0; i < count; i++) {
 
 document.addEventListener('DOMContentLoaded', function() {
     displayObjectsInTable(objects);
-    var scheduleElement = document.querySelector('.schedule');
-    var goalElement = document.querySelector('.goal');
-
-//new
     var objectElements = document.querySelectorAll('.object');
-    objectElements.forEach(function (objectElement, index) {
+    objectElements.forEach(function (objectElement) {
         objectElement.addEventListener('click', function() {
-            redirectToIndex(index);
+            var originalIndex = parseInt(objectElement.getAttribute('data-original-index'));
+            redirectToIndex(originalIndex);
         });
-    });
-
-    // Add click event listener to "goal"
-    goalElement.addEventListener('click', function() {
-        redirectToIndex();
     });
 });
 
 function displayObjectsInTable(objectList) {
-    // Get the "schedule" and "goal" elements
     var schedule = document.querySelector('.schedule');
     var goal = document.querySelector('.goal');
-
-    // Iterate through the list of objects and create a div for each
     objectList.forEach(function(object, index) {
-        // Create a new div element for each object
         var objectDiv = document.createElement('div');
         objectDiv.className = 'object tableElement';
-        var backgroundColor = '#006400'; // Default color for completed objects
+        objectDiv.setAttribute('data-original-index', index); 
+        var backgroundColor = '#006400';
 
         if (object.completedPercentage < 1) {
             backgroundColor = '#FFFFFF';
@@ -57,11 +44,7 @@ function displayObjectsInTable(objectList) {
         } else if (object.completedPercentage < 90) {
             backgroundColor = '#007200';
         }
-
-        // Apply background color to the object
         objectDiv.style.backgroundColor = backgroundColor;
-
-        // Create and append HTML content based on object properties
         var htmlContent = `
             <div class="left">${object.activityName}</div>
             <div class="right">${object.completedPercentage}%</div>
@@ -70,11 +53,10 @@ function displayObjectsInTable(objectList) {
 
         objectDiv.innerHTML = htmlContent;
 
-        // Determine where to append the object based on object.flag
         if (!object.flag) {
-            goal.appendChild(objectDiv); // Append to "goal" element
+            goal.appendChild(objectDiv);
         } else {
-            schedule.appendChild(objectDiv); // Append to "schedule" element
+            schedule.appendChild(objectDiv);
         }
     });
 }
@@ -126,10 +108,6 @@ function addOption(container, text, destination) {
 
     container.appendChild(option);
 }
-
-// function redirectToIndex() {
-//     window.location.href = '/Timely/index.html'; // Adjust the path accordingly
-// }
 
 function redirectToIndex(objCount) {
     localStorage.setItem('objCount',objCount)

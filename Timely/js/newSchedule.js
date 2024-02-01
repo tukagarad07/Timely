@@ -23,7 +23,7 @@ function addNewTarget() {
 
     // Validate goal time
     if (goalTime > dailyfixTime) { // 60 minutes = 1 hour, 300 minutes = 5 hours
-        const convertedTime = `${Math.floor(dailyfixTime / 60)} hours and ${dailyfixTime % 60} minutes.`;
+        const convertedTime = `${Math.floor(dailyfixTime / 3600)} hours and ${(dailyfixTime % 3600)/60} minutes.`;
         alert("Daily Schedule is already scheduled and your remaining time of the day is : "+convertedTime);
         return; // Stop further execution
     }
