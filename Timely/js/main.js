@@ -31,8 +31,9 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function displayObjectsInTable(objectList) {
-    // Get the "table" element
-    var table = document.querySelector('.schedule');
+    // Get the "schedule" and "goal" elements
+    var schedule = document.querySelector('.schedule');
+    var goal = document.querySelector('.goal');
 
     // Iterate through the list of objects and create a div for each
     objectList.forEach(function(object, index) {
@@ -41,16 +42,23 @@ function displayObjectsInTable(objectList) {
         objectDiv.className = 'object tableElement';
 
         // Create and append HTML content based on object properties
-        objectDiv.innerHTML = `
+        var htmlContent = `
             <div class="left">${object.activityName}</div>
             <div class="right">${object.completedPercentage}%</div>
             <!-- Add other properties as needed -->
         `;
 
-        // Append the objectDiv to the "table" element
-        table.appendChild(objectDiv);
+        objectDiv.innerHTML = htmlContent;
+
+        // Determine where to append the object based on object.flag
+        if (!object.flag) {
+            goal.appendChild(objectDiv); // Append to "goal" element
+        } else {
+            schedule.appendChild(objectDiv); // Append to "schedule" element
+        }
     });
 }
+
 
 
 var dropdownContent;

@@ -14,12 +14,12 @@ function addNewTarget() {
     let completedHours = 0;
     let flag = true;
     let count = parseInt(localStorage.getItem('localCount')) || 0;
-    let dailyfixTime = localStorage.getItem('dailyfixTime') || 1440;
+    let dailyfixTime = localStorage.getItem('dailyfixTime') || 1440*60;
 
     // Split the goal time input to extract hours and minutes
     let [hours, minutes] = goalTime.split(':').map(Number);
     // Convert goal time to total minutes
-    goalTime = hours * 60 + minutes;
+    goalTime = (hours * 60 + minutes) * 60;
 
     // Validate goal time
     if (goalTime > dailyfixTime) { // 60 minutes = 1 hour, 300 minutes = 5 hours
@@ -39,7 +39,7 @@ function addNewTarget() {
     alert("Activity is generated");
 
     // Redirect to the index.html page
-    window.location.href = "/Timely/html/home.html";
+    window.location.href = "index.html";
 }
 
 
