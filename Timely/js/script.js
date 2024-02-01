@@ -84,24 +84,46 @@ function updateStopwatch() {
   }
   updateDisplay();
 }
-
 function updateDisplay() {
   const display = document.querySelector('.display');
+  const stopWatch = document.querySelector('.stopWatch'); // Select the .stopWatch element
+
   if (hours > 0) {
     display.textContent = formatTime(hours) + ':' + formatTime(minutes) + ':' + formatTime(seconds);
   } else {
     display.textContent = formatTime(minutes) + ':' + formatTime(seconds) + ':' + formatTime(milliseconds);
   }
-  
+
   // Check if completed hours equals total hours
   if (parseInt(object.completedHours) >= parseInt(object.totleHours)) {
     clearInterval(timer); // Stop the timer
     timer = null;
     document.querySelector('.start').disabled = true; // Disable the start button
   }
-  
+
+  // Update border color of .stopWatch based on completedPercentage
+  const completedPercentage = parseInt(object.completedPercentage);
+  if (completedPercentage >= 90) {
+    stopWatch.style.borderLeftColor = 'green';
+    stopWatch.style.borderTopColor = 'green';
+    stopWatch.style.borderRightColor = 'green';
+  } else if (completedPercentage >= 65) {
+    stopWatch.style.borderLeftColor = 'green';
+    stopWatch.style.borderTopColor = 'green';
+  } else if (completedPercentage >= 40) {
+    stopWatch.style.borderLeftColor = 'yellow';
+    stopWatch.style.borderTopColor = 'yellow';
+  } else if (completedPercentage >= 20) {
+    stopWatch.style.borderLeftColor = 'red';
+  } else {
+    stopWatch.style.borderLeftColor = ''; // Reset to default if not met
+    stopWatch.style.borderTopColor = ''; // Reset to default if not met
+  }
+  stopWatch.style.transition = 'border-color 10s ease-in-out';
   saveTimeToLocalStorage();
 }
+
+
 
 
 function formatTime(time) {
