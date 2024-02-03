@@ -40,7 +40,7 @@ function displayObjectData() {
     const objHTML = `
       <div>
         <p>Activity Name: ${object.activityName}</p>
-        <p>Total Time: ${convertSecondsToHHMMSS(object.totleHours)}</p>
+        <p>Total Time: ${convertSecondsToHHMMSS(object.totalHours)}</p>
         <p>Completed Time: ${convertSecondsToHHMMSS(object.completedHours)}</p>
         <p>Completed Percentage: ${parseInt(object.completedPercentage).toFixed(0)}%</p>
       </div>
@@ -52,7 +52,7 @@ function displayObjectData() {
 function saveTimeToLocalStorage() {
   if (object) {
     object.completedHours = (hours * 3600) + (minutes * 60) + seconds;
-    object.completedPercentage = ((parseInt(object.completedHours) / parseInt(object.totleHours)) * 100).toFixed(2);
+    object.completedPercentage = ((parseInt(object.completedHours) / parseInt(object.totalHours)) * 100).toFixed(2);
     localStorage.setItem('object' + objNumber, JSON.stringify(object));
     displayObjectData();
   }
@@ -95,7 +95,7 @@ function updateDisplay() {
   }
 
   // Check if completed hours equals total hours
-  if (parseInt(object.completedHours) >= parseInt(object.totleHours)) {
+  if (parseInt(object.completedHours) >= parseInt(object.totalHours)) {
     clearInterval(timer); // Stop the timer
     timer = null;
     document.querySelector('.start').disabled = true; // Disable the start button

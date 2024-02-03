@@ -43,11 +43,11 @@ function addNewTarget() {
 }
 
 
-function dailySchedule(activityName, totleHours, completedHours, startDate, dueDate, flag) {
+function dailySchedule(activityName, totalHours, completedHours, startDate, dueDate, flag) {
     this.activityName = activityName;
-    this.totleHours = totleHours;
+    this.totalHours = totalHours;
     this.completedHours = completedHours;
-    this.completedPercentage = (completedHours / totleHours) * 100 || 0;
+    this.completedPercentage = (completedHours / totalHours) * 100 || 0;
     this.startDate = startDate;
     this.dueDate = dueDate;
     this.flag = flag;
