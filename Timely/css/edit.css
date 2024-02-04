@@ -47,10 +47,9 @@ input[readonly] {
 }
 .bottomlContent {
     display: flex;
-    position: absolute;
-    bottom: 2%; 
-    left: 20%;
-    align-items: center;
+    position: -webkit-sticky;
+    bottom: 0%; 
+    left: 0%;
     padding: 10px;
     text-decoration: none; 
     color: inherit;
