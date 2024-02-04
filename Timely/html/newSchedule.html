@@ -8,7 +8,6 @@
 </head>
 <body>
     <div class="box">
-        <!-- <form> -->
             <input type="text" placeholder="Daily Activity Name" id="activityName" required>
             <div class="bTime">
                 <label for="goalTime">Set Daily Time:</label>
@@ -19,10 +18,11 @@
                 <input type="date" id="startDate" name="startDate" required>
                 <label for="dueDate">Due Date:</label>
                 <input type="date" id="dueDate" name="dueDate" required>
-            <!-- </div> -->
-            <button type="submit" class="submitButton">Add New Activity</button>
-        </form>
+            </div>
+            <button type="button" class="submitButton" onclick="addNewTarget()">Add New Activity</button>
+
     </div>
+    <div class="toast" id="toast"></div>
     <script src="/Timely/js/newSchedule.js"></script>
 </body>
 </html>

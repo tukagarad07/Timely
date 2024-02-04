@@ -1,5 +1,34 @@
+function validateInputFields() {
+    let activityName = document.getElementById('activityName').value;
+    let goalTime = document.getElementById('goalTime').value;
+    let startDate = document.getElementById('startDate').value;
+    let dueDate = document.getElementById('dueDate').value;
+
+    if (activityName.trim() === '') {
+        showToast("Please enter the activity name.");
+        return false;
+    }
+    if (goalTime.trim() === '') {
+        showToast("Please enter the daily time.");
+        return false;
+    }
+    if (startDate.trim() === '') {
+        showToast("Please select the start date.");
+        return false;
+    }
+    if (dueDate.trim() === '') {
+        showToast("Please select the due date.");
+        return false;
+    }
+
+    return true;
+}
 
 function addNewTarget() {
+    if (!validateInputFields()) {
+        return;
+    }
+
     let activityName = document.getElementById('activityName').value;
     let goalTime = document.getElementById('goalTime').value;
     let startDate = document.getElementById('startDate').value;
@@ -11,7 +40,6 @@ function addNewTarget() {
 
     let [hours, minutes] = goalTime.split(':').map(Number);
     goalTime = (hours * 60 + minutes) * 60;
-
 
     if (goalTime > dailyfixTime) { 
         const convertedTime = `${Math.floor(dailyfixTime / 3600)} hours and ${(dailyfixTime % 3600)/60} minutes.`;
@@ -25,9 +53,10 @@ function addNewTarget() {
     localStorage.setItem('object' + count, JSON.stringify(newObject));
     localStorage.setItem('localCount', count + 1);
 
-    alert("Activity is generated");
+    showToast("Activity added successfully!");
     window.location.href = "/index.html";
 }
+
 
 
 function dailySchedule(activityName, totalHours, completedHours, startDate, dueDate, flag) {
@@ -38,4 +67,16 @@ function dailySchedule(activityName, totalHours, completedHours, startDate, dueD
     this.startDate = startDate;
     this.dueDate = dueDate;
     this.flag = flag;
+}
+
+
+
+function showToast(message) {
+    var toast = document.getElementById("toast");
+    toast.innerText = message;
+    toast.classList.add("show");
+
+    setTimeout(function(){
+        toast.classList.remove("show");
+    }, 3000);
 }

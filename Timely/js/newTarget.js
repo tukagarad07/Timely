@@ -1,15 +1,38 @@
-
-function addNewTarget() {
+function validateInputFields() {
     let activityName = document.getElementById('activityName').value;
     let goalTime = document.getElementById('goalTime').value;
     let startDate = document.getElementById('startDate').value;
     let dueDate = document.getElementById('dueDate').value;
-    
-    // Check if required fields are filled
-    if (!activityName || !goalTime || !startDate || !dueDate) {
-        alert("Please fill out all required fields.");
-        return; // Exit function if any required field is empty
+
+    if (activityName.trim() === '') {
+        showToast("Please enter the activity name.");
+        return false;
     }
+    if (goalTime.trim() === '') {
+        showToast("Please enter the goal time.");
+        return false;
+    }
+    if (startDate.trim() === '') {
+        showToast("Please select the start date.");
+        return false;
+    }
+    if (dueDate.trim() === '') {
+        showToast("Please select the due date.");
+        return false;
+    }
+
+    return true;
+}
+
+function addNewTarget() {
+    if (!validateInputFields()) {
+        return;
+    }
+
+    let activityName = document.getElementById('activityName').value;
+    let goalTime = document.getElementById('goalTime').value;
+    let startDate = document.getElementById('startDate').value;
+    let dueDate = document.getElementById('dueDate').value;
 
     let completedHours = 0;
     let flag = false;
@@ -23,11 +46,10 @@ function addNewTarget() {
     localStorage.setItem('object' + count, JSON.stringify(newObject));
     localStorage.setItem('localCount', count + 1);
 
-    alert("Activity is generated");
+    showToast("Target added successfully!");
 
     window.location.href = "/index.html";
 }
-
 
 function dailySchedule(activityName, totalHours, completedHours, startDate, dueDate, flag) {
     this.activityName = activityName;
@@ -37,4 +59,15 @@ function dailySchedule(activityName, totalHours, completedHours, startDate, dueD
     this.startDate = startDate;
     this.dueDate = dueDate;
     this.flag = flag;
+}
+
+
+function showToast(message) {
+    var toast = document.getElementById("toast");
+    toast.innerText = message;
+    toast.classList.add("show");
+
+    setTimeout(function(){
+        toast.classList.remove("show");
+    }, 3000);
 }
