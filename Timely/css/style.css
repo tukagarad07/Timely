@@ -11,29 +11,29 @@ body {
 .leftContent {
   display: flex;
   position: absolute;
-  top: 0; /* Position at the top */
-  left: 0; /* Position at the left */
+  top: 0; 
+  left: 0; 
   align-items: center;
-  padding: 10px; /* Add padding for better spacing */
+  padding: 10px;
 }
 .bottomlContent {
   display: flex;
   position: absolute;
-  bottom: 2%; /* Position at the top */
-  left: 20%; /* Position at the left */
+  bottom: 2%; 
+  left: 20%; 
   align-items: center;
-  padding: 10px; /* Add padding for better spacing */
-  text-decoration: none; /* Remove underline */
+  padding: 10px; 
+  text-decoration: none; 
   color: inherit;
 }
 .bottomrContent {
   display: flex;
   position: absolute;
-  bottom: 2%; /* Position at the top */
-  right: 20%; /* Position at the left */
+  bottom: 2%; 
+  right: 20%; 
   align-items: center;
-  padding: 10px; /* Add padding for better spacing */
-  text-decoration: none; /* Remove underline */
+  padding: 10px; 
+  text-decoration: none;
   color: inherit;
 }
 
@@ -42,10 +42,10 @@ body {
   position: relative;
   width: 300px;
   height: 300px;
-  margin-top: 20px; /* Add margin to separate from the content above */
+  margin-top: 20px; 
   border-radius: 50%;
-  border: 20px solid #ccc; /* Larger border size */
-  border-bottom-color: transparent; /* Bottom part empty */
+  border: 20px solid #ccc; 
+  border-bottom-color: transparent; 
 }
 
 .display {
@@ -60,7 +60,7 @@ body {
 
 button {
   position: absolute;
-  bottom: 20px; /* Adjust bottom position as needed */
+  bottom: 20px; 
   left: 50%;
   transform: translateX(-50%);
   margin: 5px;

@@ -86,7 +86,7 @@ function updateStopwatch() {
 }
 function updateDisplay() {
   const display = document.querySelector('.display');
-  const stopWatch = document.querySelector('.stopWatch'); // Select the .stopWatch element
+  const stopWatch = document.querySelector('.stopWatch'); 
 
   if (hours > 0) {
     display.textContent = formatTime(hours) + ':' + formatTime(minutes) + ':' + formatTime(seconds);
@@ -94,14 +94,12 @@ function updateDisplay() {
     display.textContent = formatTime(minutes) + ':' + formatTime(seconds) + ':' + formatTime(milliseconds);
   }
 
-  // Check if completed hours equals total hours
   if (parseInt(object.completedHours) >= parseInt(object.totalHours)) {
-    clearInterval(timer); // Stop the timer
+    clearInterval(timer); 
     timer = null;
-    document.querySelector('.start').disabled = true; // Disable the start button
+    document.querySelector('.start').disabled = true; 
   }
 
-  // Update border color of .stopWatch based on completedPercentage
   const completedPercentage = parseInt(object.completedPercentage);
   if (completedPercentage >= 90) {
     stopWatch.style.borderLeftColor = 'green';
@@ -116,8 +114,8 @@ function updateDisplay() {
   } else if (completedPercentage >= 20) {
     stopWatch.style.borderLeftColor = 'red';
   } else {
-    stopWatch.style.borderLeftColor = ''; // Reset to default if not met
-    stopWatch.style.borderTopColor = ''; // Reset to default if not met
+    stopWatch.style.borderLeftColor = ''; 
+    stopWatch.style.borderTopColor = ''; 
   }
   stopWatch.style.transition = 'border-color 10s ease-in-out';
   saveTimeToLocalStorage();

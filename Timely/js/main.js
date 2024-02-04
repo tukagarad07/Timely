@@ -100,8 +100,6 @@ function addOption(container, text, destination) {
     var option = document.createElement("div");
     option.className = "dropdown-option";
     option.textContent = text;
-
-    // Add click event listener to navigate to the specified destination
     option.addEventListener("click", function() {
         window.location.href = destination;
     });
