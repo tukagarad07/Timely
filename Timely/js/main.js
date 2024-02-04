@@ -111,3 +111,6 @@ function redirectToIndex(objCount) {
     localStorage.setItem('objCount',objCount)
     window.location.href = '/Timely/html/home.html';
 }
+function contactUs() {
+    window.location.href = '/Timely/html/contact.html';
+}
