@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add new Target</title>
+    <title>New Target</title>
     <link rel="stylesheet" href="/Timely/css/newTarget.css">
 </head>
 <body>
     <div class="box">
-        <input type="text" placeholder="Target Activity Name" id="activityName">
+        <input type="text" placeholder="Target Activity Name" id="activityName" required>
         <div class="bTime">
             <label for="goalTime">Set Goal Time:</label>
-            <input type="text" id="goalTime" placeholder="hours:min">
+            <input type="text" id="goalTime" placeholder="hours:min" required>
         </div>
         <div class="bDate">
             <label for="startDate">Start Date:</label>
-            <input type="date" id="startDate" name="startDate">
+            <input type="date" id="startDate" name="startDate" required>
             <label for="dueDate">Due Date:</label>
-            <input type="date" id="dueDate" name="dueDate">
+            <input type="date" id="dueDate" name="dueDate" required>
         </div>
-        <button type="button" class="submitButton" onclick="addNewTarget()">Add New Target</button>
+        <button type="submit" class="submitButton" onclick="addNewTarget()">Add New Target</button>
     </div>
     <script src="/Timely/js/newTarget.js"></script>
 </body>

@@ -4,6 +4,13 @@ function addNewTarget() {
     let goalTime = document.getElementById('goalTime').value;
     let startDate = document.getElementById('startDate').value;
     let dueDate = document.getElementById('dueDate').value;
+    
+    // Check if required fields are filled
+    if (!activityName || !goalTime || !startDate || !dueDate) {
+        alert("Please fill out all required fields.");
+        return; // Exit function if any required field is empty
+    }
+
     let completedHours = 0;
     let flag = false;
     let count = parseInt(localStorage.getItem('localCount')) || 0;
