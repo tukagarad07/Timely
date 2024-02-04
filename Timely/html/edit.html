@@ -10,35 +10,40 @@
 <body>
 
 <h1>Edit Daily Schedule</h1>
-
+<br>
 <div id="scheduleDetails">
 </div>
 
 <div class="box">
     <form id="editForm">
         <label for="activityName">Activity Name:</label>
-        <input type="text" id="activityName" name="activityName" required><br>
+        <input type="text" placeholder="Daily Activity Name" id="activityName" required>
         
         <label for="totalHours">Total Time:</label>
-        <input type="text" id="totalHours" name="totalHours" required><br>
+        <input type="text" id="totalHours" name="totalHours" required>
         
         <label for="completedHours">Completed Time:</label>
-        <input type="text" id="completedHours" name="completedHours" required readonly>
-        <button class="resetBtn"><i class="fa-solid fa-rotate-left"></i></button><br>
+        <div class="completedHoursContainer">
+            <input type="text" id="completedHours" name="completedHours" required readonly>
+            <button class="resetBtn"><i class="fa-solid fa-rotate-left"></i></button>
+        </div>
         
         <label for="startDate">Start Date:</label>
-        <input type="date" id="startDate" name="startDate" required><br>
+        <input type="date" id="startDate" name="startDate" required>
         
         <label for="dueDate">Due Date:</label>
-        <input type="date" id="dueDate" name="dueDate" required><br>
+        <input type="date" id="dueDate" name="dueDate" required>
         
         <label for="flag">Flag:</label>
-        <input type="checkbox" id="flag" name="flag" required><br><br>
+        <input type="checkbox" id="flag" name="flag" required>
         
-        <input type="submit" value="Update">
-        <button id="deleteBtn">Delete</button>
+        <div class="buttonContainer">
+            <button type="button" class="updateBtn">Update</button>
+            <button class="deleteBtn">Delete</button>
+        </div>
     </form>
 </div>
+
 <br>
 <br>
 <a href="/Timely/html/home.html" class="bottomlContent"><i class="fa-solid fa-left-long"></i></a>

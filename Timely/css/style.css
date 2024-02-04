@@ -1,13 +1,18 @@
-body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
+* {
   margin: 0;
-  background-color: skyblue;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(115deg, #56d8e4 10%, #9f01ea 90%);
+}
 .leftContent {
   display: flex;
   position: absolute;
