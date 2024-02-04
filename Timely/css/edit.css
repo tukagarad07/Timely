@@ -1,0 +1,63 @@
+
+h1 {
+    text-align: center;
+}
+
+
+body {
+    width: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    background-color: violet;
+}
+
+.box {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+button {
+    height: fit-content;
+    width: fit-content;
+    align-items: center;
+    font-size: 20px;
+}
+
+input {
+    margin-bottom: 30px;
+    height: 30px;
+    font-size: 20px;
+}
+
+#goalTime
+{
+    text-align: center;
+    height: 20px;
+    width: 90px;
+}
+input[readonly] {
+    background-color: #f5f5f5; /* Light gray background */
+    color: #666; /* Dark gray text color */
+    border: none; /* Remove border */
+    width: 25%;
+}
+.bottomlContent {
+    display: flex;
+    position: absolute;
+    bottom: 2%; /* Position at the top */
+    left: 20%; /* Position at the left */
+    align-items: center;
+    padding: 10px; /* Add padding for better spacing */
+    text-decoration: none; /* Remove underline */
+    color: inherit;
+}
+
+#flag[type="checkbox"] {
+    margin-top: 20px;
+    height: 20px; /* Adjust height as needed */
+    width: 20px; /* Adjust width as needed */
+}
