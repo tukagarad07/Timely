@@ -32,13 +32,14 @@ document.addEventListener("DOMContentLoaded", function() {
         window.location.href = '/Timely/html/home.html';
     });
 
-    document.getElementById("deleteBtn").addEventListener("click", function(event) {
+    document.querySelector(".deleteBtn").addEventListener("click", function(event) {
         event.preventDefault();
         if(object){
             if(object.flag) {
                 let dailyfixTime= parseInt(localStorage.getItem('dailyfixTime'));
                 dailyfixTime+=object.totalHours;
                 localStorage.setItem('dailyfixTime', dailyfixTime);
+                console.log("done");
             }
             let localCount = localStorage.getItem("localCount");
             localStorage.removeItem('object'+objNumber);
@@ -61,6 +62,7 @@ document.addEventListener("DOMContentLoaded", function() {
             window.location.href = '/index.html';
         }
     });
+    
 });
 function secondsToHoursMinutes(seconds) {
     var hours = Math.floor(seconds / 3600);
