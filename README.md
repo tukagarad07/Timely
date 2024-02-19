@@ -20,3 +20,11 @@ https://timely07.netlify.app/
 <img height="451" alt="image" src="/Timely/Screenshot_20240219_074219.jpg">    ______     <img height="451" alt="image" src="/Timely/Screenshot_20240219_074230.jpg">
 
 <img height="451" alt="image" src="/Timely/Screenshot_20240219_074241.jpg">     _______    <img height="451" alt="image" src="/Timely/Screenshot_20240219_091948.jpg">
+
+
+
+### **_Future Scope :-_**
+
+**► Enhanced Analytics:** Implementing advanced analytics features to provide users with insights into their time usage, goal progress, and productivity patterns, helping them make informed decisions to optimize their workflow further.
+
+**► Integration with Calendar Platforms:** Integrating the application with popular calendar platforms like Google Calendar or Microsoft Outlook to enable seamless synchronization of scheduled tasks and events, enhancing user convenience and productivity.
