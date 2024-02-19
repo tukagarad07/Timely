@@ -17,7 +17,4 @@ https://timely07.netlify.app/
 
 ### **_ScreenShots of project :-_**
 
-<img height="451" alt="image" src="/Timely/Screenshot_20240219_074219.jpg">
-<img height="451" alt="image" src="/Timely/Screenshot_20240219_074230.jpg">
-<img height="451" alt="image" src="/Timely/Screenshot_20240219_074241.jpg">
-<img height="451" alt="image" src="/Timely/Screenshot_20240219_091948.jpg">
+<img height="451" alt="image" src="/Timely/Screenshot_20240219_074219.jpg"><img height="451" alt="image" src="/Timely/Screenshot_20240219_074230.jpg"><img height="451" alt="image" src="/Timely/Screenshot_20240219_074241.jpg"><img height="451" alt="image" src="/Timely/Screenshot_20240219_091948.jpg">
