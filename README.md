@@ -17,12 +17,12 @@ https://timely07.netlify.app/
 
 ### **_ScreenShots of project :-_**
 
-<img width="451" alt="image" src="/Timely/Screenshot_20240219_074219.jpg">
+<img height="451" alt="image" src="/Timely/Screenshot_20240219_074219.jpg">
 
 
-<img width="449" alt="image" src="/Timely/Screenshot_20240219_074230.jpg">
+<img height="449" alt="image" src="/Timely/Screenshot_20240219_074230.jpg">
 
 
-<img width="446" alt="image" src="/Timely/Screenshot_20240219_074241.jpg">
+<img height="446" alt="image" src="/Timely/Screenshot_20240219_074241.jpg">
 
-<img width="447" alt="image" src="/Timely/Screenshot_20240219_091948.jpg">
+<img height="447" alt="image" src="/Timely/Screenshot_20240219_091948.jpg">
